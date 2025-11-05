@@ -10,6 +10,11 @@ venv/
 .idea/
 .vscode/
 
+data/
+raw_data/
+*.zip
+*.tar.gz
+
 models/*.h5
 models/*.keras
 models/*.tflite
