@@ -1,48 +1,62 @@
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
+import numpy as np
+from sklearn.utils.class_weight import compute_class_weight
 
-def get_data_generators(batch_size=32, img_size=(48,48)):
+def get_data_generators(batch_size=64, img_size=(48, 48)):
     train_datagen = ImageDataGenerator(
         rescale=1./255,
-        rotation_range=30,
-        width_shift_range=0.15,
-        height_shift_range=0.15,
-        shear_range=0.1,
+        rotation_range=20,
+        width_shift_range=0.2,
+        height_shift_range=0.2,
+        shear_range=0.15,
         zoom_range=0.2,
         horizontal_flip=True,
         brightness_range=[0.8, 1.2],
-        fill_mode="nearest",
-        validation_split=0.1
+        fill_mode='nearest',
+        validation_split=0.15
+    )
+
+    val_test_datagen = ImageDataGenerator(
+        rescale=1./255,
+        validation_split=0.15
     )
 
     test_datagen = ImageDataGenerator(rescale=1./255)
 
-    train_generator = train_datagen.flow_from_directory(
+    train_gen = train_datagen.flow_from_directory(
         "data/fer2013/train",
         target_size=img_size,
-        color_mode="grayscale",
         batch_size=batch_size,
-        class_mode="sparse",
-        subset='training',
+        color_mode="grayscale",
+        class_mode="categorical",
+        subset="training",
         shuffle=True
     )
 
-    val_generator = train_datagen.flow_from_directory(
+    val_gen = val_test_datagen.flow_from_directory(
         "data/fer2013/train",
         target_size=img_size,
-        color_mode="grayscale",
         batch_size=batch_size,
-        class_mode="sparse",
+        color_mode="grayscale",
+        class_mode="categorical",
         subset="validation",
         shuffle=False
     )
 
-    test_generator = test_datagen.flow_from_directory(
+    test_gen = test_datagen.flow_from_directory(
         "data/fer2013/test",
         target_size=img_size,
-        color_mode="grayscale",
         batch_size=batch_size,
-        class_mode="sparse",
+        color_mode="grayscale",
+        class_mode="categorical",
         shuffle=False
     )
 
-    return train_generator, val_generator, test_generator, train_generator.class_indices
+    class_weights = compute_class_weight(
+        "balanced",
+        classes=np.unique(train_gen.classes),
+        y=train_gen.classes
+    )
+    class_weight_dict = dict(enumerate(class_weights))
+
+    return train_gen, val_gen, test_gen, class_weight_dict
