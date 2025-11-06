@@ -2,7 +2,6 @@
 
 **Project in progress**  
 
-<<<<<<< HEAD
 - Detects emotions (happy, sad, angry, etc.) from faces.
 - Dataset: [FER2013](https://www.kaggle.com/datasets/msambare/fer2013)
 
