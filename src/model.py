@@ -1,10 +1,16 @@
-from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import (
-    Input, Conv2D, BatchNormalization, Dropout, 
-    Dense, MaxPooling2D, Flatten, Activation
+    Activation,
+    BatchNormalization,
+    Conv2D,
+    Dense,
+    Dropout,
+    Flatten,
+    Input,
+    MaxPooling2D,
 )
-from tensorflow.keras.regularizers import l2
+from tensorflow.keras.models import Sequential
 from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.regularizers import l2
 
 def build_model(input_shape=(48, 48, 1), n_classes=7):
     model = Sequential([

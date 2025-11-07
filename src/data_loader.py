@@ -1,5 +1,5 @@
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import numpy as np
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from sklearn.utils.class_weight import compute_class_weight
 
 def get_data_generators(batch_size=64, img_size=(48, 48)):
