@@ -1,4 +1,4 @@
-# Real-time Facial Emotion Detection
+# **Facial Emotion Recognition**
 
 <div align="center">
 
@@ -10,7 +10,7 @@ A deep learning-based system for detecting human emotions from facial expression
 
 </div>
 
-## 📋 Overview
+## 📋 **Overview**
 
 This project implements an emotion recognition system that can classify facial expressions into 7 different emotions:
 - 😠 Angry
@@ -21,7 +21,7 @@ This project implements an emotion recognition system that can classify facial e
 - 😢 Sad
 - 😲 Surprise
 
-The model is trained on the **FER2013 dataset** and achieves approximately **66% accuracy** on the test set.
+The model is trained on the `FER2013 dataset` and achieves approximately `66% accuracy` on the test set.
 
 > **⚠️ Note**: This is a work-in-progress project. Future versions will include:
 > - Higher accuracy models (transfer learning with pre-trained networks)
@@ -31,7 +31,7 @@ The model is trained on the **FER2013 dataset** and achieves approximately **66%
 > - Web-based demo interface
 
 
-## ✨ Features
+## ✨ **Features**
 
 - **Custom CNN Architecture**: Deep convolutional neural network with batch normalization and dropout
 - **Data Augmentation**: Comprehensive augmentation pipeline to improve model generalization
@@ -40,14 +40,14 @@ The model is trained on the **FER2013 dataset** and achieves approximately **66%
 - **Comprehensive Evaluation**: Detailed performance metrics, confusion matrix, and misclassification analysis
 
 
-## 🚀 Installation
+## 🚀 **Installation**
 
-### Prerequisites
+### Prerequisites:
 - Python 3.8 or higher
 - pip package manager
 - Git LFS (for model files)
 
-### Setup
+### Setup:
 
 1. **Clone the repository**
 ```bash
@@ -97,16 +97,16 @@ data/
 ```
 
 
-## 💻 Usage
+## **💻 Usage**
 
-### Training the Model
+### Training the Model:
 ```bash
 python -m src.train
 ```
 
-**Training parameters** (can be modified in `src/train.py`):
-- `batch_size`: 64
-- `epochs`: 100
+Training parameters (can be modified in `src/train.py`):
+- batch size: 64
+- epochs: 100
 - Automatic early stopping with patience of 15 epochs
 - Learning rate reduction on plateau
 
@@ -120,7 +120,7 @@ Open and run the `reports.ipynb` notebook to:
 - Analyze misclassified samples
 
 
-## 🏗️ Model Architecture
+## **🏗️ Model Architecture**
 
 The model consists of:
 
@@ -145,7 +145,7 @@ The model consists of:
 **Total Parameters:** ~10.5M
 
 
-## 📁 Project Structure
+## **📁 Project Structure**
 ```
 emotion-detection/
 ├── .gitattributes          # Git LFS configuration
@@ -168,8 +168,35 @@ emotion-detection/
     └── train.py           # Training script
 ```
 
+## **📊 Results:**
 
-## 🔮 Future Work
+### Performance Metrics
+
+| Metric | Value |
+|--------|-------|
+| Test Accuracy | 66.13% |
+| Test Loss | 1.1089 |
+
+### Per-Class Performance
+
+| Emotion | Precision | Recall | F1-Score | Support |
+|---------|-----------|--------|----------|---------|
+| Angry | 0.55 | 0.64 | 0.59 | 958 |
+| Disgust | 0.55 | 0.67 | 0.60 | 111 |
+| Fear | 0.56 | 0.35 | 0.43 | 1024 |
+| Happy | 0.92 | 0.83 | 0.87 | 1774 |
+| Neutral | 0.56 | 0.74 | 0.64 | 1233 |
+| Sad | 0.56 | 0.51 | 0.53 | 1247 |
+| Surprise | 0.72 | 0.84 | 0.78 | 831 |
+
+### Key Observations:
+
+- **Best Performance**: Happy emotion (92% precision, 87% F1-score)
+- **Challenging Classes**: Fear (43% F1-score) and Sad (53% F1-score)
+- **Balanced Accuracy**: Model shows relatively consistent performance across most classes
+- The confusion matrix reveals common misclassifications between similar emotions
+
+## **🔮 Future Work**
 
 This project is actively under development. Planned improvements include:
 
@@ -189,42 +216,41 @@ This project is actively under development. Planned improvements include:
 - [ ] Support for video emotion tracking
 
 
-## 👨‍💻 Author
+## **👨‍💻 Author**
 
-**Vahid Siyami**
+#### Vahid Siyami
 - GitHub: [@BraveVahid](https://github.com/BraveVahid)
 - Email: vahidsiyami.dev@gmail.com
 - Telegram: [@BraveVahid](https://t.me/BraveVahid)
 
-## 🤝 Contributing
+## **🤝 Contributing**
 
-Contributions are welcome and greatly appreciated! Every little bit helps, and credit will always be given.
+Contributions are welcome and greatly appreciated!
 
-### How to Contribute
+**1. Fork the Repository**
 
-#### 1. Fork the Repository
 Click the "Fork" button at the top right of this repository.
 
-#### 2. Clone Your Fork
+**2. Clone Your Fork**
 ```bash
 git clone https://github.com/your-username/facial_emotion_recognition.git
 cd facial_emotion_recognition
 ```
 
-#### 3. Create a Branch
+**3. Create a Branch**
 ```bash
 git checkout -b feature/your-feature-name
 # or
 git checkout -b fix/your-bug-fix
 ```
 
-#### 4. Make Your Changes
+**4. Make Your Changes**
 - Write clean, readable code
 - Follow PEP 8 style guidelines
 - Add comments where necessary
 - Update documentation if needed
 
-#### 5. Test Your Changes
+**5. Test Your Changes**
 ```bash
 # Run the training script to ensure it works
 python -m src.train
@@ -233,26 +259,26 @@ python -m src.train
 # Make sure the model loads and evaluates correctly
 ```
 
-#### 6. Commit Your Changes
+**6. Commit Your Changes**
 ```bash
 git add .
-git commit -m "Add: brief description of your changes"
+git commit -m "Add: description of your changes"
 ```
 
-**Commit Message Guidelines:**
-- `Add:` for new features
-- `Fix:` for bug fixes
-- `Update:` for updates to existing features
-- `Docs:` for documentation changes
-- `Refactor:` for code refactoring
-- `Test:` for adding tests
+>Commit Message Guidelines:
+>- `Add:` for new features
+>- `Fix:` for bug fixes
+>- `Update:` for updates to existing features
+>- `Docs:` for documentation changes
+>- `Refactor:` for code refactoring
+>- `Test:` for adding tests
 
-#### 7. Push to Your Fork
+**7. Push to Your Fork**
 ```bash
 git push origin feature/your-feature-name
 ```
 
-#### 8. Create a Pull Request
+**8. Create a Pull Request**
 - Go to the original repository
 - Click "New Pull Request"
 - Select your fork and branch
