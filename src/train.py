@@ -21,7 +21,7 @@ def train_model(batch_size=64, epochs=100):
     model = build_model()
 
     checkpoint = ModelCheckpoint(
-        filepath="model/emotion_detector.keras",
+        filepath="model/emotion_recognition.keras",
         monitor="val_accuracy",
         save_best_only=True,
         save_weights_only=False,

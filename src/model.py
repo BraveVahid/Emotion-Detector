@@ -71,7 +71,6 @@ def build_model(input_shape=(48, 48, 1), n_classes=7):
     ])
 
     model.compile(
-        # optimizer=Adam(learning_rate=0.0001, beta_1=0.9, beta_2=0.999),
         optimizer=Adam(),
         loss="categorical_crossentropy",
         metrics=["accuracy"]
